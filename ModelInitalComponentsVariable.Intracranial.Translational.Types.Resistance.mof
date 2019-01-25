@@ -1,0 +1,2 @@
+type Resistance
+ = Real;

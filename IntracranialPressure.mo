@@ -511,7 +511,7 @@ package ModelInitalComponentsVariable
           Modelica.Blocks.Interfaces.RealInput u annotation (Placement(
                 transformation(extent={{-142,-10},{-102,30}})));
           Modelica.Blocks.Interfaces.RealInput u1
-            annotation (Placement(transformation(extent={{86,14},{126,54}})));
+            annotation (Placement(transformation(extent={{134,12},{94,52}})));
         equation
           connect(pressure_base1.flowp, csfFormation1.inf) annotation (
             Line(points={{-66,-53.4},{-66,-12}},    color = {28, 108, 200}));
@@ -533,7 +533,7 @@ package ModelInitalComponentsVariable
           connect(csfFormation1.u, u) annotation (Line(points={{-72.6,-4.2},{
                   -72.6,10},{-122,10}}, color={0,0,127}));
           connect(resistance1_1.R, u1) annotation (Line(points={{71,31.6},{91.5,
-                  31.6},{91.5,34},{106,34}}, color={0,0,127}));
+                  31.6},{91.5,32},{114,32}}, color={0,0,127}));
         end Gravitymodel2;
       end Examples;
 
@@ -649,9 +649,10 @@ package ModelInitalComponentsVariable
 
         type Flow = Real(final quantity = "Flow", final unit = "ml/min");
 
-        type Pressure = Real ( final quantity = "Pressure", final unit = "mmHg");
+        type Pressure = Real ( final quantity = "Pressure", final unit = "Pa", displayUnit="mmHg")
+         "1 mmHG= 133322 Pa";
 
-        type Resistance = Real (final quantity = "Resistance to flow", final unit = "mmHg/(ml/min)");
+        type Resistance = Real (final quantity = "Resistance to flow", displayUnit = "mmHg/(ml/min)");
 
         type Elasticity = Real(final quantity = "Elasticity", final unit= "1/ml");
       end Types;
@@ -701,7 +702,9 @@ package ModelInitalComponentsVariable
   annotation (
     uses(Modelica(version = "3.2.2")));
 end ModelInitalComponentsVariable;
+
 model ModelInitalComponentsVariable_Intracranial_Translational_Examples_Gravitymodel2
  extends ModelInitalComponentsVariable.Intracranial.Translational.Examples.Gravitymodel2;
-  
-end ModelInitalComponentsVariable_Intracranial_Translational_Examples_Gravitymodel2;
+
+end
+  ModelInitalComponentsVariable_Intracranial_Translational_Examples_Gravitymodel2;
